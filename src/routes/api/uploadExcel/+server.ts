@@ -10,8 +10,8 @@ export async function POST({ request }: RequestEvent) {
         }
 
         const { file } = formData as { file: File };
-
-        writeFileSync(`${file.name}`, Buffer.from(await file.arrayBuffer()));
+        
+        writeFileSync(`tmp/${file.name}`, Buffer.from(await file.arrayBuffer()));
     
 
         return json({success: true, message: 'Successfully uploaded the file' });
